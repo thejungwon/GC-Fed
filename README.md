@@ -113,7 +113,7 @@ GC-Fed relies on the following libraries:
 ## References
 
 Additional relevant resources:
-
+- [Gradient Centralization](https://github.com/Yonghongwei/Gradient-Centralization)
 - [Flower](https://github.com/adap/flower)
 - [FedNTD](https://github.com/Lee-Gihun/FedNTD)
 - [FedSOL](https://github.com/Lee-Gihun/FedSOL)

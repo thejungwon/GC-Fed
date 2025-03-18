@@ -41,18 +41,19 @@ See `models.py`.
     <img src="https://github.com/user-attachments/assets/acb90844-f338-4e70-bf12-956c950c947e" alt="Training Dynamics">
 </p>
 
-GC-Fed supports multiple federated learning baseline algorithms, including:
+This project supports multiple federated learning baseline algorithms, including:
 
-- FedAvg
-- FedProx
-- SCAFFOLD
-- FedDyn
-- FedNTD
-- FedVARP
-- FedLC
-- FedDecorr
-- FedSOL
-- FedACG
+- **FedAvg (AISTATS 2016)**: [arXiv:1602.05629](https://arxiv.org/abs/1602.05629)
+- **FedProx (MLSys 2020)**: [arXiv:1812.06127](https://arxiv.org/abs/1812.06127)
+- **SCAFFOLD (ICML 2020)**: [arXiv:1910.06378](https://arxiv.org/abs/1910.06378)
+- **FedDyn (ICLR 2021)**: [arXiv:2111.04263](https://arxiv.org/abs/2111.04263)
+- **FedNTD (NeurIPS 2022)**: [arXiv:2106.03097](https://arxiv.org/abs/2106.03097)
+- **FedVARP (UAI 2022))**: [arXiv:2207.14130](https://arxiv.org/abs/2207.14130)
+- **FedLC (ICML 2022)**: [arXiv:2209.00189](https://arxiv.org/abs/2209.00189)
+- **FedDecorr (ICLR 2023)**: [arXiv:2210.00226](https://arxiv.org/abs/2210.00226)
+- **FedSOL (CVPR 2024)**: [arXiv:2308.12532](https://arxiv.org/abs/2308.12532)
+- **FedACG (CVPR 2024)**: [arXiv:2201.03172](https://arxiv.org/abs/2201.03172)
+
 
 See `algorithms/`.
 

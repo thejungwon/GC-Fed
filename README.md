@@ -31,7 +31,7 @@ Supported model architectures:
 
 - MLP
 - CNN
-- VGG11
+- VGG11 (not with mps)
 - ResNet18
 
 See `models.py`.

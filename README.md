@@ -137,3 +137,14 @@ Additional relevant resources:
 - [FedDecorr](https://github.com/bytedance/FedDecorr)
 
 For further details, please refer to the respective repositories.
+
+## Citing this work
+
+```
+@article{seo2025gc,
+  title={GC-Fed: Gradient Centralized Federated Learning with Partial Client Participation},
+  author={Seo, Jungwon and Catak, Ferhat Ozgur and Rong, Chunming and Hong, Kibeom and Kim, Minhoe},
+  journal={arXiv preprint arXiv:2503.13180},
+  year={2025}
+}
+```

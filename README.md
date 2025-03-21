@@ -1,6 +1,7 @@
 # Gradient Centralized Federated Learning (GC-Fed)
 <p align="center">
         <a href="https://arxiv.org/abs/2503.13180"><img src="https://img.shields.io/badge/arXiv-2503.13180-b31c1c"></a>
+        <a href="https://pytorch.org/"><img src="https://img.shields.io/badge/Framework-PyTorch-red"></a>
 </p>
 
 <p align="center">

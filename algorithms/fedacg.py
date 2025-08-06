@@ -195,29 +195,29 @@ class FedACG:
         Parameters:
             client_updates: List of client update dictionaries.
         """
-        aggregated_weight = copy.deepcopy(self.global_model.state_dict())
-        global_model_delta = {}
-        for layer in aggregated_weight.keys():
-            layer_gradients = torch.stack(
-                [
-                    client_update["update"][layer].float()
-                    for client_update in client_updates
-                ]
-            )
-            mean_layer_gradients = torch.mean(layer_gradients, dim=0)
-            aggregated_weight[layer] = (
-                aggregated_weight[layer] + self.global_lr * mean_layer_gradients
-            )
-            global_model_delta[layer] = self.global_lr * mean_layer_gradients
+        # prev global weights
+        prev = copy.deepcopy(self.global_model.state_dict())
 
-        # Update momentum for each layer.
-        for layer in aggregated_weight.keys():
-            delta = global_model_delta[layer]
-            self.global_momentum[layer] = (
-                self.args.server_momentum * self.global_momentum[layer] + delta
+        # Δ^t = average of client deltas (w.r.t. the lookahead they were sent)
+        avg_delta = {}
+        for k in prev.keys():
+            avg_delta[k] = torch.mean(
+                torch.stack([u["update"][k].float() for u in client_updates]), dim=0
             )
 
-        self.global_model.load_state_dict(aggregated_weight)
+        # (optional) keep a server scaling; set self.global_lr=1.0 to match the paper
+        for k in avg_delta:
+            avg_delta[k] = self.global_lr * avg_delta[k]
+
+        # m^t = λ m^{t-1} + Δ^t
+        for k in prev.keys():
+            self.global_momentum[k] = (
+                self.args.server_momentum * self.global_momentum[k] + avg_delta[k]
+            )
+
+        # θ^t = θ^{t-1} + m^t
+        new_w = {k: prev[k] + self.global_momentum[k] for k in prev.keys()}
+        self.global_model.load_state_dict(new_w)
 
     def train(self):
         """
